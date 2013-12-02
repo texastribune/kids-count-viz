@@ -38,32 +38,38 @@
 
     <script type="text/template" id="row-template">
 
-    <header>
-      <h1><%= county %> County</h1>
-    </header>
-    <table class="tt-table striped borders condensed">
-      <thead>
-        <tr>
-          <th>Children living in poverty</th>
-          <th>Unemployment</th>
-          <th>Child Population</th>
-          <th>Total Population</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%= poverty_raw_children.toLocaleString() %></td>
-          <td><%= unemployment_raw.toLocaleString() %></td>
-          <td><%= child_pop.toLocaleString() %></td>
-          <td><%= pop.toLocaleString() %></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="grid">
+      <header>
+        <h1><%= county %> County</h1>
+      </header>
+    </div>
+    <div class="grid">
+      <table class="tt-table striped borders condensed">
+        <thead>
+          <tr>
+            <th>Children living in poverty</th>
+            <th>Unemployment</th>
+            <th>Child Population</th>
+            <th>Total Population</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= poverty_raw_children.toLocaleString() %></td>
+            <td><%= unemployment_raw.toLocaleString() %></td>
+            <td><%= child_pop.toLocaleString() %></td>
+            <td><%= pop.toLocaleString() %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <div class="grid">
       <div class="cell w-9"><p>The rate of children living in poverty changed <%= this.model.calculatePovertyChange() %> percent between 2000 and 2011.</p></div>
       <div class="cell w-3"><button type="button" class="form-button form-button-blue load-chart">View chart</button></div>
     </div>
-    <canvas class="chart-container hidden"></canvas>
+    <div class="grid">
+      <canvas class="chart-container hidden"></canvas>
+    </div>
 
     </script>
 </section>

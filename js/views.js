@@ -58,7 +58,7 @@ var ChartView = Backbone.View.extend({
 
   renderChart: function() {
     var parentWidth = this.$el.parent().width();
-    this.$el.attr({width: parentWidth, height: 300});
+    this.$el.attr({width: parentWidth, height: 150});
 
     this.chart = new Chart(this.el.getContext('2d'));
 
