@@ -67,8 +67,14 @@
       <div class="cell w-9"><p>The rate of children living in poverty changed <%= this.model.calculatePovertyChange() %> percent between 2000 and 2011.</p></div>
       <div class="cell w-3"><button type="button" class="form-button form-button-blue load-chart">View chart</button></div>
     </div>
-    <div class="grid">
-      <canvas class="chart-container hidden"></canvas>
+    <div class="grid chart-cell hidden">
+      <canvas class="chart-container"></canvas>
+      <ul class="chart-legend">
+        <li><span style="display: inline-block; height: 8px; width: 15px; background-color: rgb(177, 33, 37); margin: 0 3px 0 0;"></span>Children in poverty - County</li>
+        <li><span style="display: inline-block; height: 8px; width: 15px; background-color: rgb(220, 139, 106); margin: 0 3px 0 6px;"></span>Children in poverty - State</li>
+        <li><span style="display: inline-block; height: 8px; width: 15px; background-color: rgb(62, 103, 176); margin: 0 3px 0 6px;"></span>Unemployment Rate - County</li>
+        <li><span style="display: inline-block; height: 8px; width: 15px; background-color: rgb(68, 171, 223); margin: 0 3px 0 6px;"></span>Unemployment Rate - State</li>
+      </ul>
     </div>
 
     </script>
