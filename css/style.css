@@ -1,0 +1,30 @@
+.form-button {
+  display: inline-block;
+  font-family: inherit;
+  padding: 3px 6px;
+  width: 300px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  text-transform: none;
+  background-image: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.form-button-blue {
+  color: rgb(34, 34, 34);
+  background-color: rgb(68, 171, 223);
+  border-color: rgb(62, 103, 176);
+}
