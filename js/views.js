@@ -2,7 +2,7 @@ var RowContainerView = Backbone.View.extend({
   el: '#row-container',
 
   initialize: function() {
-    this.listenTo(this.collection, 'reset', this.render);
+    this.listenTo(this.collection, 'ready', this.render);
   },
 
   render: function() {
