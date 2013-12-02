@@ -40,7 +40,6 @@
 
     <header>
       <h1><%= county %> County</h1>
-      <p>The rate of children living in poverty changed <%= poverty_change %> percent between 2000 and 2011.</p>
     </header>
     <table class="tt-table striped borders condensed">
       <thead>
@@ -60,8 +59,9 @@
         </tr>
       </tbody>
     </table>
-    <div>
-      <button type="button" class="form-button form-button-blue load-chart">View chart</button>
+    <div class="grid">
+      <div class="cell w-9"><p>The rate of children living in poverty changed <%= this.model.calculatePovertyChange() %> percent between 2000 and 2011.</p></div>
+      <div class="cell w-3"><button type="button" class="form-button form-button-blue load-chart">View chart</button></div>
     </div>
     <canvas class="chart-container hidden"></canvas>
 
