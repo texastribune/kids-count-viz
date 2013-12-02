@@ -42,21 +42,21 @@
       <h1><%= county %> County</h1>
       <p>Here is where the auto blurb could go</p>
     </header>
-    <table class="tt-table striped">
+    <table class="tt-table striped borders condensed">
       <thead>
         <tr>
-          <th>Stat #1 Header</th>
-          <th>Stat #2 Header</th>
-          <th>Stat #3 Header</th>
-          <th>Stat #4 Header</th>
+          <th>Children living in poverty</th>
+          <th>Unemployment</th>
+          <th>Child Population</th>
+          <th>Total Population</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Stat #1</td>
-          <td>Stat #2</td>
-          <td>Stat #3</td>
-          <td>Stat #4</td>
+          <td><%= poverty_raw_children.toLocaleString() %></td>
+          <td><%= unemployment_raw.toLocaleString() %></td>
+          <td><%= child_pop.toLocaleString() %></td>
+          <td><%= pop.toLocaleString() %></td>
         </tr>
       </tbody>
     </table>
