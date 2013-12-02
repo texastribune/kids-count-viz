@@ -44,6 +44,7 @@ var RowView = Backbone.View.extend({
 
     new ChartView({
       model: this.model,
+      texas: texas,
       el: this.$('.chart-container').removeClass('hidden')
     });
   }
@@ -52,7 +53,8 @@ var RowView = Backbone.View.extend({
 var ChartView = Backbone.View.extend({
   labels: _.range(2000, 2012),
 
-  initialize: function() {
+  initialize: function(obj) {
+    this.texas = obj.texas;
     this.renderChart();
   },
 
@@ -70,7 +72,28 @@ var ChartView = Backbone.View.extend({
         pointColor: "rgb(177, 33, 37)",
         pointStrokeColor : "#fff",
         data: this.model.get('pct_poverty_child')
+      },{
+        fillColor: "rgba(220, 139, 106, 0.5)",
+        strokeColor: "rgb(220, 139, 106)",
+        pointColor: "rgb(220, 139, 106)",
+        pointStrokeColor : "#fff",
+        data: this.texas.get('pct_poverty_child')
+      },{
+        fillColor: "rgba(62, 103, 176, 0.5)",
+        strokeColor: "rgb(62, 103, 176)",
+        pointColor: "rgb(62, 103, 176)",
+        pointStrokeColor : "#fff",
+        data: this.model.get('pct_poverty_child')
+      },{
+        fillColor: "rgba(68, 171, 223, 0.5)",
+        strokeColor: "rgb(68, 171, 223)",
+        pointColor: "rgb(68, 171, 223)",
+        pointStrokeColor : "#fff",
+        data: this.texas.get('pct_poverty_child')
       }]
+    }, {
+      scaleLabel : "<%= (value * 100).toFixed(1) %>%",
+      datasetFill: false
     });
   }
 });
