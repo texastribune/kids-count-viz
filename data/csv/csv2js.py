@@ -17,19 +17,16 @@ for row in reader:
             child_data = {}
             child_data["county"] = row[1]
             child_data["pct_poverty_child"] = [(float(row[4]))]
+            child_data["pct_unemployment"] = [(float(row[5]))]
             child.append(child_data)
 
             unemployment_data = {}
             unemployment_data["county"] = row[1]
-            unemployment_data["pct_unemployment"] = [(float(row[5]))]
             unemployment.append(unemployment_data)
         else:
             for d in child:
                 if d["county"] == row[1]:
                     d["pct_poverty_child"].append(float(row[4]))
-
-            for d in unemployment:
-                if d["county"] == row[1]:
                     d["pct_unemployment"].append(float(row[5]))
 
 pop = open("total-pop.csv")
