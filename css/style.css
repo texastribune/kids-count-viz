@@ -1,3 +1,16 @@
+.row header {
+  font-size: 30px;
+}
+
+.row header h1 {
+  font-family: "Knockout 49 A", "Knockout 49 B";
+  font-size: 1em;
+}
+
+.row header p {
+  font-size: 0.55em;
+}
+
 .form-button {
   display: inline-block;
   font-family: inherit;
@@ -27,4 +40,10 @@
   color: rgb(34, 34, 34);
   background-color: rgb(68, 171, 223);
   border-color: rgb(62, 103, 176);
+}
+
+@media screen and (max-width: 767px) {
+  .form-button {
+    width: 100%;
+  }
 }

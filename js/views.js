@@ -19,7 +19,7 @@ var RowContainerView = Backbone.View.extend({
 
 var RowView = Backbone.View.extend({
     tagName: 'div',
-    className: 'cell w-12',
+    className: 'cell w-12 row',
 
     template: _.template($('#row-template').html()),
 
