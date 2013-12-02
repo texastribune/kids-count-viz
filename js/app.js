@@ -1,6 +1,7 @@
 // bootstrappin'
 
 var counties = new CountyCollection();
-counties.reset(data);
 
-new RowContainerView();
+new RowContainerView({collection: counties});
+
+counties.reset(kids_count_data);
