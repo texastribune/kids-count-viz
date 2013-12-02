@@ -55,9 +55,9 @@
         </thead>
         <tbody>
           <tr>
-            <td><%= poverty_raw_children['Number-2011'].toLocaleString() %></td>
+            <td><%= poverty_raw_children['Number-2011'].toLocaleString() %> (<%= this.model.getLatestChildPovertyRate() %>%)</td>
             <td><%= child_pop['Number-2011'].toLocaleString() %></td>
-            <td><%= unemployment_raw['Number-2011'].toLocaleString() %></td>
+            <td><%= unemployment_raw['Number-2011'].toLocaleString() %> (<%= this.model.getLatestUnemploymentRate() %>%)</td>
             <td><%= pop['Number-2011'].toLocaleString() %></td>
           </tr>
         </tbody>
