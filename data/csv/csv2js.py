@@ -32,9 +32,6 @@ for row in reader:
                 if d["county"] == row[1]:
                     d["pct_unemployment"].append(float(row[5]))
 
-for d in unemployment:
-    child.append(d)
-
 pop = open("total-pop.csv")
 pop_reader = csv.reader(pop)
 pop_reader.next()
