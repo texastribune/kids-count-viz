@@ -10,6 +10,7 @@ var RowContainerView = Backbone.View.extend({
 
     this.collection.each(function(model) {
       var view = new RowView({model: model});
+      var county_select = new CountySelectView({model: model});
       payload.push(view.render().el);
     });
 
@@ -118,11 +119,24 @@ var SortSelectView = Backbone.View.extend({
 var CountySelectView = Backbone.View.extend({
   el: '#county-select',
 
+  template: _.template($('#select-template').html()),
+
   events: {
     'change': 'selectCounty'
   },
 
-  selectCounty: function() {
+  initialize: function() {
+    this.render();
+  },
+
+  selectCounty: function(e) {
     var county = this.$el.val();
+    console.log(county);
+    console.log(this.collection);
+  },
+
+  render: function() {
+    this.$el.html(this.template(this.model.toJSON()));
+    return this;
   }
 });
