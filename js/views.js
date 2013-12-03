@@ -106,3 +106,11 @@ var ChartView = Backbone.View.extend({
     });
   }
 });
+
+var SortSelectView = Backbone.View.extend({
+  el: '#sort-select',
+
+  events: {
+    'change': 'alterSort'
+  }
+});
