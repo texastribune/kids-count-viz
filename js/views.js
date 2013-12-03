@@ -11,7 +11,6 @@ var RowContainerView = Backbone.View.extend({
 
     this.collection.each(function(model) {
       var view = new RowView({model: model});
-      var county_select = new CountySelectView({model: model, collection: this.collection});
       payload.push(view.render().el);
     });
 
