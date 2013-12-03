@@ -11,7 +11,7 @@ var RowContainerView = Backbone.View.extend({
 
     this.collection.each(function(model) {
       var view = new RowView({model: model});
-      var county_select = new CountySelectView({model: model});
+      var county_select = new CountySelectView({model: model, collection: this.collection});
       payload.push(view.render().el);
     });
 
@@ -154,12 +154,15 @@ var CountySelectView = Backbone.View.extend({
 
   selectCounty: function(e) {
     var county = this.$el.val();
-    console.log(county);
-    console.log(this.collection);
+    _.each(counties.models, function(m, i) {
+      if (m.get("county") == county.split(' ')[0]) {
+        $(window).scrollTop($($('.county-title')[i]).position()['top']);
+      }
+    });
   },
 
   render: function() {
-    this.$el.html(this.template(this.model.toJSON()));
+    this.$el.append(this.template(this.model.toJSON()));
     return this;
   }
 });
