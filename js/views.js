@@ -36,16 +36,20 @@ var RowView = Backbone.View.extend({
     $('.chart-container').each(function(i,v) {
       var ctx = v.getContext('2d');
       ctx.clearRect(0, 0, v.width, v.height);
-    }).addClass('hidden');
+    });
+
+    $('.chart-cell').addClass('hidden');
   },
 
   loadChart: function() {
     this.emptyAllCharts();
 
+    this.$('.chart-cell').removeClass('hidden');
+
     new ChartView({
       model: this.model,
       texas: texas,
-      el: this.$('.chart-container').removeClass('hidden')
+      el: this.$('.chart-container')
     });
   }
 });
@@ -60,7 +64,7 @@ var ChartView = Backbone.View.extend({
 
   renderChart: function() {
     var parentWidth = this.$el.parent().width();
-    this.$el.attr({width: parentWidth, height: 150});
+    this.$el.attr({width: parentWidth, height: 200});
 
     this.chart = new Chart(this.el.getContext('2d'));
 
@@ -83,17 +87,22 @@ var ChartView = Backbone.View.extend({
         strokeColor: "rgb(62, 103, 176)",
         pointColor: "rgb(62, 103, 176)",
         pointStrokeColor : "#fff",
-        data: this.model.get('pct_poverty_child')
+        data: this.model.get('pct_unemployment')
       },{
         fillColor: "rgba(68, 171, 223, 0.5)",
         strokeColor: "rgb(68, 171, 223)",
         pointColor: "rgb(68, 171, 223)",
         pointStrokeColor : "#fff",
-        data: this.texas.get('pct_poverty_child')
+        data: this.texas.get('pct_unemployment')
       }]
     }, {
-      scaleLabel : "<%= (value * 100).toFixed(1) %>%",
-      datasetFill: false
+      scaleFontFamily: "'Helvetica', 'Arial', sans-serif",
+      scaleLabel : "<%= (value * 100) %>%",
+      datasetFill: false,
+      scaleOverride: true,
+      scaleStartValue: 0,
+      scaleSteps: 10,
+      scaleStepWidth: 0.05
     });
   }
 });

@@ -1,3 +1,7 @@
+.row p {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 .row table {
   margin-top: 10px;
 }
@@ -13,6 +17,21 @@
 
 .row header p {
   font-size: 0.55em;
+}
+
+.row .chart-cell {
+  margin: 10px 0 0 0;
+}
+
+.row .chart-legend {
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.75em;
+  margin: 5px 0 0 0;
+}
+
+.row .chart-legend li {
+  display: inline;
 }
 
 .form-button {
