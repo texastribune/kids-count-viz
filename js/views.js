@@ -44,15 +44,21 @@ var RowView = Backbone.View.extend({
   },
 
   loadChart: function() {
-    this.emptyAllCharts();
+    if (this.$('.chart-cell').hasClass('hidden')) {
+      this.emptyAllCharts();
 
-    this.$('.chart-cell').removeClass('hidden');
+      this.$('.chart-cell').removeClass('hidden');
 
-    new ChartView({
-      model: this.model,
-      texas: texas,
-      el: this.$('.chart-container')
-    });
+      new ChartView({
+        model: this.model,
+        texas: texas,
+        el: this.$('.chart-container')
+      });
+    }
+
+    else {
+      this.emptyAllCharts();
+    }
   }
 });
 
