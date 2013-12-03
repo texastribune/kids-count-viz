@@ -124,14 +124,12 @@ var SortSelectView = Backbone.View.extend({
 
   alterSort: function() {
     var val = this.$el.val();
-    console.log(val);
     this.collection.comparator = function(model) {
       return -model.get(val);
     };
 
     this.collection.sort();
   }
-
 });
 
 var CountySelectView = Backbone.View.extend({
