@@ -133,3 +133,15 @@ var SortSelectView = Backbone.View.extend({
   }
 
 });
+
+var CountySelectView = Backbone.View.extend({
+  el: '#county-select',
+
+  events: {
+    'change': 'selectCounty'
+  },
+
+  selectCounty: function() {
+    var county = this.$el.val();
+  }
+});
