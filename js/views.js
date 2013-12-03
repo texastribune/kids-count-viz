@@ -3,6 +3,7 @@ var RowContainerView = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.collection, 'ready', this.render);
+    this.listenTo(this.collection, 'sort', this.render);
   },
 
   render: function() {
@@ -68,6 +69,13 @@ var ChartView = Backbone.View.extend({
 
     this.chart = new Chart(this.el.getContext('2d'));
 
+    var max = _.max(_.union(
+      this.model.get('pct_poverty_child'),
+      this.texas.get('pct_poverty_child'),
+      this.model.get('pct_unemployment'),
+      this.texas.get('pct_unemployment')
+    ));
+
     this.chart.Line({
       labels: this.labels,
       datasets: [{
@@ -101,7 +109,7 @@ var ChartView = Backbone.View.extend({
       datasetFill: false,
       scaleOverride: true,
       scaleStartValue: 0,
-      scaleSteps: 10,
+      scaleSteps: Math.ceil(max/0.05),
       scaleStepWidth: 0.05
     });
   }
@@ -112,5 +120,16 @@ var SortSelectView = Backbone.View.extend({
 
   events: {
     'change': 'alterSort'
+  },
+
+  alterSort: function() {
+    var val = this.$el.val();
+    console.log(val);
+    this.collection.comparator = function(model) {
+      return -model.get(val);
+    };
+
+    this.collection.sort();
   }
+
 });

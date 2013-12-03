@@ -1,3 +1,7 @@
+.row {
+  margin: 0 0 10px 0;
+}
+
 .row p {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -32,7 +36,7 @@
 .row .chart-legend {
   text-align: center;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 0.75em;
+  font-size: 0.85em;
   margin: 5px 0 0 0;
 }
 
