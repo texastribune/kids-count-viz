@@ -1,4 +1,11 @@
 var CountyModel = Backbone.Model.extend({
+  parse: function(payload) {
+    payload['poverty_2011'] = _.last(payload['pct_poverty_child']);
+    payload['unemploy_2011'] = _.last(payload['pct_unemployment']);
+
+    return payload;
+  },
+
   calculatePovertyChange: function() {
     var old = this.get("poverty_raw_children")["Number-2000"];
     var new_data = this.get("poverty_raw_children")["Number-2011"];
