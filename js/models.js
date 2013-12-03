@@ -9,8 +9,12 @@ var CountyModel = Backbone.Model.extend({
         return diff_text;
     },
 
-    calculateDiffFromTexas: function(texas) {
-        var diff = texas.get("poverty_raw_children")["Percent-2011"];
+    calculateDiffFromTexas: function() {
+        var diff = Math.round((this.get("poverty_raw_children")["Percent-2011"] - texas.get("poverty_raw_children")["Percent-2011"]) * 1000) / 10;
+        var diff_text = '';
+
+        diff > 0 ? diff_text = diff + ' percentage points higher than ' : diff_text = diff + ' percentage points lower than ';
+        return diff_text;
     },
 
     getLatestChildPovertyRate: function() {
