@@ -64,7 +64,7 @@
       </table>
     </div>
     <div class="grid">
-      <div class="cell w-9"><p>The rate of children living in poverty in <%= county %> County <%= this.model.calculatePovertyChange() %> percent between 2000 and 2011. Its child poverty rate in 2011 was <%= this.model.calculateDiffFromTexas() %> the child poverty rate for the state.</p></div>
+      <div class="cell w-9"><p>The number of children living in poverty in <%= county %> County <%= this.model.calculatePovertyChange() %> percent between 2000 and 2011, while the population of children <%= this.model.calculateChildPopChange() %> percent. The county child poverty rate in 2011 was <%= this.model.calculateDiffFromTexas() %> the child poverty rate for the state.</p></div>
       <div class="cell w-3"><button type="button" class="form-button form-button-blue load-chart">View chart</button></div>
     </div>
     <div class="grid chart-cell hidden">
