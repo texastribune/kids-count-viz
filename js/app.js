@@ -3,6 +3,7 @@
 var counties = new CountyCollection();
 counties.reset(kids_count_data, {parse: true});
 
+$('#county-select').empty();
 _.each(counties.models, function(m, i) {
   var countySelect = new CountySelectView({model: m, collection: this.collection});
 });

@@ -154,7 +154,7 @@ var CountySelectView = Backbone.View.extend({
   selectCounty: function(e) {
     var county = this.$el.val();
     _.each(counties.models, function(m, i) {
-      if (m.get("county") == county.split(' ')[0]) {
+      if (m.get("county") + ' County' === county) {
         $(window).scrollTop($($('.county-title')[i]).position()['top']);
       }
     });
