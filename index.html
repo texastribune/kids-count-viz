@@ -29,6 +29,18 @@
     </div>
 
     <div class="grid">
+      <dl class="altered-select-item">
+        <dt>Sort By</dt>
+        <select class="option-select" id="sort-select">
+          <option value="poverty">Child Poverty Rate (2011)</option>
+          <option value="unemployment">Unemployment Rate (2011)</option>
+        </select>
+      </dl>
+    </div>
+
+    <hr>
+
+    <div class="grid">
       <div class="row-container" id="row-container"></div>
     </div>
 
@@ -47,18 +59,18 @@
       <table class="tt-table striped borders condensed">
         <thead>
           <tr>
-            <th>Children living in poverty</th>
-            <th>Child Population</th>
-            <th>Unemployment</th>
-            <th>Total Population</th>
+            <th>Children Living in Poverty (Total)</th>
+            <th>Children Living in Poverty (Rate)</th>
+            <th>Unemployment (Total)</th>
+            <th>Unemployment (Rate)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><%= poverty_raw_children['Number-2011'].toLocaleString() %> (<%= this.model.getLatestChildPovertyRate() %>%)</td>
-            <td><%= child_pop['Number-2011'].toLocaleString() %></td>
-            <td><%= unemployment_raw['Number-2011'].toLocaleString() %> (<%= this.model.getLatestUnemploymentRate() %>%)</td>
-            <td><%= pop['Number-2011'].toLocaleString() %></td>
+            <td><%= poverty_raw_children['Number-2011'].toLocaleString() %></td>
+            <td><%= this.model.getLatestChildPovertyRate() %>%</td>
+            <td><%= unemployment_raw['Number-2011'].toLocaleString() %></td>
+            <td><%= this.model.getLatestUnemploymentRate() %>%</td>
           </tr>
         </tbody>
       </table>
