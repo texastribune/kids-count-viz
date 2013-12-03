@@ -106,7 +106,7 @@ var ChartView = Backbone.View.extend({
       }]
     }, {
       scaleFontFamily: "'Helvetica', 'Arial', sans-serif",
-      scaleLabel : "<%= (value * 100) %>%",
+      scaleLabel : "<%= Math.round(value * 100) %>%",
       datasetFill: false,
       scaleOverride: true,
       scaleStartValue: 0,
