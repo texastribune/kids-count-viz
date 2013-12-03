@@ -1,10 +1,16 @@
 var CountyModel = Backbone.Model.extend({
     calculatePovertyChange: function() {
-        var old = this.get("pct_poverty_child")[0];
-        var new_data = this.get("pct_poverty_child")[11];
+        var old = this.get("poverty_raw_children")["Number-2011"];
+        var new_data = this.get("poverty_raw_children")["Number-2000"];
         var diff = Math.round(((new_data - old)/old) * 1000) / 10;
+        var diff_text = '';
 
-        return diff;
+        diff > 0 ? diff_text = 'increased ' + diff : diff_text = 'decreased ' + diff;
+        return diff_text;
+    },
+
+    calculateDiffFromTexas: function(texas) {
+        var diff = texas.get("poverty_raw_children")["Percent-2011"];
     },
 
     getLatestChildPovertyRate: function() {
